@@ -1,0 +1,40 @@
+{
+  "name": "sugarfree",
+  "version": "0.0.1",
+  "description": "Manage SASS from vanilla CSS",
+  "main": "index.js",
+  "bin": {
+    "sugarfree": "index.js"
+  },
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomhodgins/sugarfree.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "preprocessor",
+    "vanilla",
+    "migrate",
+    "syntax",
+    "at-rule",
+    "rule"
+  ],
+  "author": "Tommy Hodgins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomhodgins/sugarfree/issues"
+  },
+  "homepage": "https://github.com/tomhodgins/sugarfree#readme",
+  "dependencies": {
+    "sass": "^1.26.5"
+  }
+}
