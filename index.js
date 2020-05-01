@@ -1,16 +1,18 @@
-#!/usr/bin/env node
-const fs = require('fs')
-const sugarFree = require('./sugarfree.js')
+const sass = require('sass')
+const parseCSS = require('./lib/parse-css/index.cjs.js')
+const stringify = (list = [], joiner = '') =>  list.map(token =>token.toSource()).join(joiner)
 
-const file = process.argv.slice(2)[0]
-let css
+module.exports = function sugarFree(string = '@--sass-lang {}') {
+  return parseCSS.parseAStylesheet(string).value.reduce(
+    (output, rule) => {
+      output.push(
+        rule.type === 'AT-RULE' && rule.name === '--sass-lang'
+          ? sass.renderSync({data: stringify(rule.value.value)}).css.toString()
+          : rule.toSource()
+      )
 
-try {
-  css = fs.readFileSync(file).toString()
-} catch (error) {
-  css = file
+      return output
+    },
+    []
+  ).join('\n')
 }
-
-console.log(
-  sugarFree(css)
-)

@@ -4,7 +4,7 @@
   "description": "Manage SASS from vanilla CSS",
   "main": "index.js",
   "bin": {
-    "sugarfree": "index.js"
+    "sugarfree": "cli.js"
   },
   "directories": {
     "example": "examples",
